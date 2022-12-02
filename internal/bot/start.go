@@ -5,8 +5,8 @@ import (
 
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 
-	"github.com/aceberg/LinuxExecBot/internal/models"
 	"github.com/aceberg/LinuxExecBot/internal/check"
+	"github.com/aceberg/LinuxExecBot/internal/models"
 )
 
 // Start telegram bot
@@ -35,7 +35,7 @@ func Start(data models.Data) {
 
 			msg.Text = execCommand(update.Message.Command(), data.Coms)
 
-			_, err := bot.Send(msg);
+			_, err := bot.Send(msg)
 			check.IfError(err)
 		}
 	}

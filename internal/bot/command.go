@@ -4,8 +4,8 @@ import (
 	"log"
 	"os/exec"
 
-	"github.com/aceberg/LinuxExecBot/internal/models"
 	"github.com/aceberg/LinuxExecBot/internal/check"
+	"github.com/aceberg/LinuxExecBot/internal/models"
 )
 
 func execCommand(command string, allowedComm []models.Command) string {
@@ -15,7 +15,9 @@ func execCommand(command string, allowedComm []models.Command) string {
 	out := "Unknown command"
 	for _, oneCommand := range allowedComm {
 		if oneCommand.Name == command {
-			cmd, err := exec.Command(oneCommand.Exec).Output()
+			log.Println("INFO: executing", oneCommand.Exec)
+
+			cmd, err := exec.Command("sh", "-c", oneCommand.Exec).Output()
 			check.IfError(err)
 
 			out = string(cmd)
