@@ -26,6 +26,9 @@ jobs:
       - name: Rename archive
         run: mv LinuxExecBot.tar.gz LinuxExecBot-${{ env.VERSION }}.tar.gz
 
+      - name: Build .deb package
+        run: build/ci/build-deb.sh
+
       - name: Upload the artifacts
         uses: skx/github-action-publish-binaries@master
         env:

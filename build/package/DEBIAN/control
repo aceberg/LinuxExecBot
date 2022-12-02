@@ -1,5 +1,0 @@
-Package: LinuxExecBot
-Version: 1.0.1
-Architecture: all
-Maintainer: aceberg <aceberg_a@proton.me>
-Description: Telegram bot to execute a command from a configurable list on your Linux machine
