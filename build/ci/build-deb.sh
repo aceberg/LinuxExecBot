@@ -18,3 +18,5 @@ Description: Telegram bot to execute a command from a configurable list on your 
 " > $PKGDIR/DEBIAN/control
 
 dpkg-deb --build --root-owner-group $PKGDIR
+
+rm -rf $PKGDIR
