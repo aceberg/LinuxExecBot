@@ -2,7 +2,7 @@ package main
 
 import (
 	"flag"
-	// "log"
+	"log"
 
 	"github.com/aceberg/LinuxExecBot/internal/bot"
 	"github.com/aceberg/LinuxExecBot/internal/yaml"
@@ -16,10 +16,15 @@ func main() {
 
 	data := yaml.Read(*confPtr)
 
-	// if data == models.Data{} {
-	// 	log.Printf("ERROR: no data")
-	// 	return
-	// }
+	if data.Conf.Token == "" || data.Conf.ID == 0 {
+		log.Printf("ERROR: no Token or Chat ID")
+		return
+	}
+
+	if data.Coms == nil {
+		log.Printf("ERROR: no commands")
+		return
+	}
 
 	bot.Start(data)
 }
