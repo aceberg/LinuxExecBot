@@ -1,0 +1,12 @@
+[Unit]
+Description=LinuxExecBot
+Documentation=https://github.com/aceberg/LinuxExecBot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/bin/LinuxExecBot -c /etc/LinuxExecBot/config.yaml
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

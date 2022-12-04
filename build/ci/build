@@ -1,7 +1,0 @@
-#!/bin/bash
-
-cd cmd/LinuxExecBot/ && CGO_ENABLED=0 go build -o ../../LinuxExecBot .
-
-cd ../../
-chmod 755 LinuxExecBot
-tar cvzf LinuxExecBot.tar.gz LinuxExecBot

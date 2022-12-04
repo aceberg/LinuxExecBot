@@ -1,0 +1,10 @@
+config:
+  token: 5XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  id: 111111111
+
+commands:
+- name: la
+  exec: "ls -al"
+
+- name: ping
+  exec: "ping -c 3 8.8.8.8"

@@ -2,8 +2,16 @@
 
 PKGDIR=LinuxExecBot-$1-0_all
 
+umask 0022
+
 mkdir -p $PKGDIR/usr/bin
-chmod 755 LinuxExecBot
+mkdir -p $PKGDIR/lib/systemd/system
+mkdir -p $PKGDIR/etc/LinuxExecBot
+
+cp configs/linuxexecbot.service $PKGDIR/lib/systemd/system/
+cp configs/linuxexecbot@.service $PKGDIR/lib/systemd/system/
+cp configs/config.yaml $PKGDIR/etc/LinuxExecBot/
+
 cp LinuxExecBot $PKGDIR/usr/bin/
 
 mkdir -p $PKGDIR/DEBIAN
@@ -16,6 +24,9 @@ Architecture: all
 Maintainer: aceberg <aceberg_a@proton.me>
 Description: Telegram bot to execute a command from a configurable list
 " > $PKGDIR/DEBIAN/control
+
+echo "/etc/LinuxExecBot/config.yaml
+" > $PKGDIR/DEBIAN/conffiles
 
 dpkg-deb --build --root-owner-group $PKGDIR
 
