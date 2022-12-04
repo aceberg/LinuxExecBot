@@ -14,7 +14,7 @@ Section: utils
 Priority: optional
 Architecture: all
 Maintainer: aceberg <aceberg_a@proton.me>
-Description: Telegram bot to execute a command from a configurable list on your Linux machine
+Description: Telegram bot to execute a command from a configurable list
 " > $PKGDIR/DEBIAN/control
 
 dpkg-deb --build --root-owner-group $PKGDIR

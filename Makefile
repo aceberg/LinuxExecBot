@@ -18,3 +18,7 @@ lint:
 go-build:
 	cd cmd/LinuxExecBot/ && \
 	CGO_ENABLED=0 go build -o ../../tmp/LinuxExecBot .
+
+brun: go-build
+	cd tmp && \
+	./LinuxExecBot -c /data/LinuxExecBot/config.yaml

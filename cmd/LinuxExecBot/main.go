@@ -8,7 +8,7 @@ import (
 	"github.com/aceberg/LinuxExecBot/internal/yaml"
 )
 
-const confPath = "/data/LinuxExecBot/config.yaml"
+const confPath = "config.yaml"
 
 func main() {
 	confPtr := flag.String("c", confPath, "Path to config yaml file")
