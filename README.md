@@ -5,7 +5,13 @@
 # LinuxExecBot
 Telegram bot to execute a command from a configurable list on your Linux machine
 
-## Install
+[1. Installation]()   
+[2. Usage]()   
+[3. Options]()   
+[4. Support]()   
+
+
+## 1. Installation
 
 ### From .deb repository (recommended)
 ```sh
@@ -29,7 +35,7 @@ sudo ./install.sh
 go install github.com/aceberg/LinuxExecBot/cmd/LinuxExecBot@latest
 ```
 
-## Usage
+## 2. Usage
 ### As root
 1. Edit `/etc/LinuxExecBot/config.yaml`, put your Telegram bot's Token and ChatID there. Add your commands. Example:
 
@@ -66,13 +72,13 @@ systemctl start linuxexecbot@MYUSER.service
 ```
 4. Go to your bot in Telegram and try to execute command.
 
-## Options
+## 3. Options
 | Key  | Description | Default |
 | --------  | ----------- | ------- |
 | -c | Path to config yaml file |config.yaml|
 
 
-## Support
+## 4. Support
 
 If you like this app, please support me
 - BTC: `bc1qj59rxmfvanvqqltq9t73qls4su3xrvwuv3sxhr`
