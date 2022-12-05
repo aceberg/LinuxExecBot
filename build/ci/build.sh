@@ -16,4 +16,5 @@ cp configs/install.sh $PKGDIR/
 
 cd /opt
 tar cvzf LinuxExecBot-$1.tar.gz LinuxExecBot
-mv LinuxExecBot-$1.tar.gz ../
+cd -
+cp /opt/LinuxExecBot-$1.tar.gz .
