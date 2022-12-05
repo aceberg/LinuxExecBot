@@ -63,7 +63,7 @@ systemctl start linuxexecbot@MYUSER.service
 4. Go to your bot in Telegram and try to execute command.
 
 ## Options
-| Variable  | Description | Default |
+| Key  | Description | Default |
 | --------  | ----------- | ------- |
 | -c | Path to config yaml file |config.yaml|
 
