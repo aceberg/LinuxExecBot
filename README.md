@@ -1,5 +1,6 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/aceberg/LinuxExecBot)](https://goreportcard.com/report/github.com/aceberg/LinuxExecBot)
 [![Binary-release](https://github.com/aceberg/LinuxExecBot/actions/workflows/release.yml/badge.svg)](https://github.com/aceberg/LinuxExecBot/actions/workflows/release.yml)
+![GitHub](https://img.shields.io/github/license/aceberg/LinuxExecBot)
 
 # LinuxExecBot
 Telegram bot to execute a command from a configurable list on your Linux machine
@@ -23,7 +24,12 @@ tar xvzf LinuxExecBot-*.tar.gz
 cd LinuxExecBot
 sudo ./install.sh
 ```
-## Use
+### With go
+```sh
+go install github.com/aceberg/LinuxExecBot/cmd/LinuxExecBot@latest
+```
+
+## Usage
 ### As root
 1. Edit `/etc/LinuxExecBot/config.yaml`, put your Telegram bot's Token and ChatID there. Add your commands. Example:
 
@@ -44,10 +50,8 @@ commands:
 systemctl enable linuxexecbot.service
 systemctl start linuxexecbot.service
 ```
-3. Go to your bot in Telegram and try to execute command. Example:
-```
-/la
-```
+3. Go to your bot in Telegram and try to execute command. Example: `/la`
+
 ### As user
 1. Copy config example
 ```sh
@@ -71,6 +75,6 @@ systemctl start linuxexecbot@MYUSER.service
 ## Support
 
 If you like this app, please support me
-- BTC: bc1qj59rxmfvanvqqltq9t73qls4su3xrvwuv3sxhr
-- ETH: 0x276124c218aa8110F96989AA1f6f2Bb960C234B7
-- USDT(ETH Network): 0x276124c218aa8110F96989AA1f6f2Bb960C234B7
+- BTC: `bc1qj59rxmfvanvqqltq9t73qls4su3xrvwuv3sxhr`
+- ETH: `0x276124c218aa8110F96989AA1f6f2Bb960C234B7`
+- USDT(ETH Network): `0x276124c218aa8110F96989AA1f6f2Bb960C234B7`
