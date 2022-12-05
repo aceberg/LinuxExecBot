@@ -5,10 +5,10 @@
 # LinuxExecBot
 Telegram bot to execute a command from a configurable list on your Linux machine
 
-[1. Installation]()   
-[2. Usage]()   
-[3. Options]()   
-[4. Support]()   
+[1. Installation](https://github.com/aceberg/LinuxExecBot#1-installation)   
+[2. Usage](https://github.com/aceberg/LinuxExecBot#2-usage)   
+[3. Options](https://github.com/aceberg/LinuxExecBot#3-options)   
+[4. Support](https://github.com/aceberg/LinuxExecBot#4-support)   
 
 
 ## 1. Installation
