@@ -13,18 +13,10 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@master
 
-      # - name: Generate the artifacts
-      #   uses: skx/github-action-build@master
-      #   with:
-      #     builder: build/ci/build
-
       - name: Get version tag from env file
         uses: c-py/action-dotenv-to-setenv@v2
         with:
           env-file: .version
-
-      # - name: Rename archive
-      #   run: mv LinuxExecBot.tar.gz LinuxExecBot-${{ env.VERSION }}.tar.gz
 
       - name: Build and archive
         run: build/ci/build.sh ${{ env.VERSION }}

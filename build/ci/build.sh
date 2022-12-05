@@ -12,5 +12,8 @@ cp LinuxExecBot $PKGDIR/
 cp configs/config.yaml $PKGDIR/
 cp configs/linuxexecbot.service $PKGDIR/
 cp configs/linuxexecbot@.service $PKGDIR/
+cp configs/install.sh $PKGDIR/
 
-tar cvzf LinuxExecBot-$1.tar.gz $PKGDIR
+cd /opt
+tar cvzf LinuxExecBot-$1.tar.gz LinuxExecBot
+mv LinuxExecBot-$1.tar.gz ../
