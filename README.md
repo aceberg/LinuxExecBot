@@ -8,7 +8,7 @@ Telegram bot to execute a command from a configurable list on your Linux machine
 [1. Installation](https://github.com/aceberg/LinuxExecBot#1-installation)   
 [2. Usage](https://github.com/aceberg/LinuxExecBot#2-usage)   
 [3. Options](https://github.com/aceberg/LinuxExecBot#3-options)   
-[4. Support](https://github.com/aceberg/LinuxExecBot#4-support)   
+[4. Sponsor](https://github.com/aceberg/LinuxExecBot#4-sponsor)   
 
 
 ## 1. Installation
@@ -78,7 +78,7 @@ systemctl start linuxexecbot@MYUSER.service
 | -c | Path to config yaml file |config.yaml|
 
 
-## 4. Support
+## 4. Sponsor
 
 If you like this app, please support me
 - BTC: `bc1qj59rxmfvanvqqltq9t73qls4su3xrvwuv3sxhr`
