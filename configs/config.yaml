@@ -5,6 +5,8 @@ config:
 commands:
 - name: la
   exec: "ls -al"
+  desc: "List all files"
 
 - name: ping
   exec: "ping -c 3 8.8.8.8"
+  desc: "Ping Google DNS"

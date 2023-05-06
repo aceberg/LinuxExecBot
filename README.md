@@ -1,4 +1,5 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/aceberg/LinuxExecBot)](https://goreportcard.com/report/github.com/aceberg/LinuxExecBot)
+[![Maintainability](https://api.codeclimate.com/v1/badges/37a8c60c47f41a54c493/maintainability)](https://codeclimate.com/github/aceberg/LinuxExecBot/maintainability)
 [![Binary-release](https://github.com/aceberg/LinuxExecBot/actions/workflows/release.yml/badge.svg)](https://github.com/aceberg/LinuxExecBot/actions/workflows/release.yml)
 ![GitHub](https://img.shields.io/github/license/aceberg/LinuxExecBot)
 
@@ -8,8 +9,6 @@ Telegram bot to execute a command from a configurable list on your Linux machine
 [1. Installation](https://github.com/aceberg/LinuxExecBot#1-installation)   
 [2. Usage](https://github.com/aceberg/LinuxExecBot#2-usage)   
 [3. Options](https://github.com/aceberg/LinuxExecBot#3-options)   
-[4. Sponsor](https://github.com/aceberg/LinuxExecBot#4-sponsor)   
-
 
 ## 1. Installation
 
@@ -47,9 +46,11 @@ config:
 commands:
 - name: la
   exec: "ls -al"
+  desc: "List all files"
 
 - name: ping
   exec: "ping -c 3 8.8.8.8"
+  desc: "Ping Google DNS"
 ```
 2. Enable and start service
 ```sh
@@ -76,11 +77,3 @@ systemctl start linuxexecbot@MYUSER.service
 | Key  | Description | Default |
 | --------  | ----------- | ------- |
 | -c | Path to config yaml file |config.yaml|
-
-
-## 4. Sponsor
-
-If you like this app, please support me
-- BTC: `bc1qj59rxmfvanvqqltq9t73qls4su3xrvwuv3sxhr`
-- ETH: `0x276124c218aa8110F96989AA1f6f2Bb960C234B7`
-- USDT(ETH Network): `0x276124c218aa8110F96989AA1f6f2Bb960C234B7`

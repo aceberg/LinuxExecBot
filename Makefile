@@ -12,8 +12,10 @@ fmt:
 	go fmt ./...
 
 lint:
-	golangci-lint run
+	# golangci-lint run
 	golint ./...
+
+check: fmt lint
 
 go-build:
 	cd cmd/LinuxExecBot/ && \

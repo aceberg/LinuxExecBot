@@ -10,6 +10,7 @@ type Config struct {
 type Command struct {
 	Name string `yaml:"name"`
 	Exec string `yaml:"exec"`
+	Desc string `yaml:"desc"`
 }
 
 // Data - all from config file

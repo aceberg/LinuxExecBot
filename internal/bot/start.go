@@ -17,6 +17,25 @@ func Start(data models.Data) {
 
 	log.Printf("INFO: Authorized on account %s", bot.Self.UserName)
 
+	// Create commands Menu
+	var oneComm tgbotapi.BotCommand
+	var allComm []tgbotapi.BotCommand
+
+	for _, comm := range data.Coms {
+		if comm.Desc == "" {
+			comm.Desc = "_"
+		}
+		if comm.Name != "" {
+			oneComm.Command = comm.Name
+			oneComm.Description = comm.Desc
+
+			allComm = append(allComm, oneComm)
+		}
+	}
+	cfg := tgbotapi.NewSetMyCommands(allComm...)
+	_, err = bot.Request(cfg)
+	check.IfError(err)
+
 	u := tgbotapi.NewUpdate(0)
 	u.Timeout = 60
 
@@ -35,7 +54,7 @@ func Start(data models.Data) {
 
 			msg.Text = execCommand(update.Message.Command(), data.Coms)
 
-			_, err := bot.Send(msg)
+			_, err = bot.Send(msg)
 			check.IfError(err)
 		}
 	}
