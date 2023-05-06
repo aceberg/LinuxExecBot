@@ -22,10 +22,7 @@ func Start(data models.Data) {
 	var allComm []tgbotapi.BotCommand
 
 	for _, comm := range data.Coms {
-		if comm.Desc == "" {
-			comm.Desc = "_"
-		}
-		if comm.Name != "" {
+		if comm.Name != "" && comm.Desc != "" {
 			oneComm.Command = comm.Name
 			oneComm.Description = comm.Desc
 
