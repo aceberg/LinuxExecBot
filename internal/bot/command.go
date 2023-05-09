@@ -14,7 +14,7 @@ func execCommand(command string, allowedComm []models.Command) string {
 
 	out := "Unknown command"
 	for _, oneCommand := range allowedComm {
-		if oneCommand.Name == command {
+		if oneCommand.Name == command && oneCommand.Exec != "" {
 			log.Println("INFO: executing", oneCommand.Exec)
 
 			cmd, err := exec.Command("sh", "-c", oneCommand.Exec).Output()
@@ -22,6 +22,13 @@ func execCommand(command string, allowedComm []models.Command) string {
 
 			out = string(cmd)
 			break
+		}
+		if command == "help" {
+			if out == "Unknown command" {
+				out = "Available commands: \n"
+			}
+
+			out = out + "/" + oneCommand.Name + " - " + oneCommand.Desc + "\n"
 		}
 	}
 

@@ -52,7 +52,8 @@ commands:
   exec: "ping -c 3 8.8.8.8"
   desc: "Ping Google DNS"
 ```
-> Only commands with not empty `desc` field will be shown in Bot Menu.
+> Only commands with not empty `desc` field will be shown in Bot Menu.   
+> `/help` command lists all available commands
 
 2. Enable and start service
 ```sh

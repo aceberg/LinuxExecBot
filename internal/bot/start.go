@@ -20,7 +20,7 @@ func Start(data models.Data) {
 	// Create commands Menu
 	var oneComm tgbotapi.BotCommand
 	var allComm []tgbotapi.BotCommand
-
+	help := true
 	for _, comm := range data.Coms {
 		if comm.Name != "" && comm.Desc != "" {
 			oneComm.Command = comm.Name
@@ -28,7 +28,16 @@ func Start(data models.Data) {
 
 			allComm = append(allComm, oneComm)
 		}
+		if comm.Name == "help" {
+			help = false
+		}
 	}
+	if help {
+		oneComm.Command = "help"
+		oneComm.Description = "List all commands"
+		allComm = append(allComm, oneComm)
+	}
+
 	cfg := tgbotapi.NewSetMyCommands(allComm...)
 	_, err = bot.Request(cfg)
 	check.IfError(err)
