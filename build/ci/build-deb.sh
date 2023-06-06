@@ -28,6 +28,12 @@ Description: Telegram bot to execute a command from a configurable list
 echo "/etc/LinuxExecBot/config.yaml
 " > $PKGDIR/DEBIAN/conffiles
 
+echo "
+systemctl daemon-reload
+" > $PKGDIR/DEBIAN/postinst
+
+chmod 775 $PKGDIR/DEBIAN/postinst
+
 dpkg-deb --build --root-owner-group $PKGDIR
 
 rm -rf $PKGDIR

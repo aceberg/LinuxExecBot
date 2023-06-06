@@ -2,6 +2,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.1.0] - 2023-06-06
+### Added
+- Send command arguments
+
 ## [1.0.2] - 2023-05-09
 ### Added
 - Set Menu commands
