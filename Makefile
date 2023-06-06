@@ -6,13 +6,13 @@ mod:
 
 run:
 	cd cmd/LinuxExecBot/ && \
-	go run .
+	go run . -c /data/LinuxExecBot/config.yaml
 
 fmt:
 	go fmt ./...
 
 lint:
-	# golangci-lint run
+	golangci-lint run
 	golint ./...
 
 check: fmt lint

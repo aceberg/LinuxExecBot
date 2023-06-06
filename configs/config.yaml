@@ -1,6 +1,8 @@
 config:
   token: 5XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   id: 111111111
+  args: no # If set to "yes", allows to send arguments with bot commands
+           # WARNING! Could be dangerous, if someone gets access to your bot
 
 commands:
 - name: la

@@ -4,6 +4,7 @@ package models
 type Config struct {
 	Token string `yaml:"token"`
 	ID    int64  `yaml:"id"`
+	Args  string `yaml:"args"`
 }
 
 // Command - one command

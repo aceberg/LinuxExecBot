@@ -15,9 +15,12 @@ Telegram bot to execute a command from a configurable list on your Linux machine
 ### From .deb repository (recommended)
 ```sh
 curl -s --compressed "https://aceberg.github.io/ppa/KEY.gpg" | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/aceberg.gpg
+```
+```sh
 sudo curl -s --compressed -o /etc/apt/sources.list.d/aceberg.list "https://aceberg.github.io/ppa/aceberg.list"
-sudo apt update
-sudo apt install linuxexecbot
+```
+```sh
+sudo apt update && sudo apt install linuxexecbot
 ```
 ### From .deb file
 Download [latest](https://github.com/aceberg/LinuxExecBot/releases/latest) release, install with your package maneger
@@ -42,7 +45,8 @@ go install github.com/aceberg/LinuxExecBot/cmd/LinuxExecBot@latest
 config:
   token: 5XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   id: 111111111
-
+  args: no # If set to "yes", allows to send arguments with bot commands
+           # WARNING! Could be dangerous, if someone gets access to your bot
 commands:
 - name: la
   exec: "ls -al"

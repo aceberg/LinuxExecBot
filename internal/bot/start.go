@@ -58,7 +58,7 @@ func Start(data models.Data) {
 
 			msg := tgbotapi.NewMessage(data.Conf.ID, "")
 
-			msg.Text = execCommand(update.Message.Command(), data.Coms)
+			msg.Text = execCommand(update.Message.Command(), update.Message.CommandArguments(), data)
 
 			_, err = bot.Send(msg)
 			check.IfError(err)
