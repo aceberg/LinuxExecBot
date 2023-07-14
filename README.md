@@ -1,5 +1,6 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/aceberg/LinuxExecBot)](https://goreportcard.com/report/github.com/aceberg/LinuxExecBot)
 [![Maintainability](https://api.codeclimate.com/v1/badges/37a8c60c47f41a54c493/maintainability)](https://codeclimate.com/github/aceberg/LinuxExecBot/maintainability)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/099e3be49e80472bb702b7887e620ab1)](https://app.codacy.com/gh/aceberg/LinuxExecBot/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 [![Binary-release](https://github.com/aceberg/LinuxExecBot/actions/workflows/release.yml/badge.svg)](https://github.com/aceberg/LinuxExecBot/actions/workflows/release.yml)
 ![GitHub](https://img.shields.io/github/license/aceberg/LinuxExecBot)
 
@@ -44,7 +45,10 @@ go install github.com/aceberg/LinuxExecBot/cmd/LinuxExecBot@latest
 ```yaml
 config:
   token: 5XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-  id: 111111111
+  #id: 111111111 
+  ids:     # Use either id (for one user) or ids (for several bot users)
+    - 111111111
+    - 222222222
   args: no # If set to "yes", allows to send arguments with bot commands
            # WARNING! Could be dangerous, if someone gets access to your bot
 commands:
