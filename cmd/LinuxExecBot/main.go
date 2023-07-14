@@ -16,9 +16,13 @@ func main() {
 
 	data := yaml.Read(*confPtr)
 
-	if data.Conf.Token == "" || data.Conf.ID == 0 {
+	if data.Conf.Token == "" || (data.Conf.ID == 0 && data.Conf.IDs == nil) {
 		log.Printf("ERROR: no Token or Chat ID")
 		return
+	}
+
+	if data.Conf.ID != 0 {
+		data.Conf.IDs = append(data.Conf.IDs, data.Conf.ID)
 	}
 
 	if data.Coms == nil {

@@ -18,29 +18,19 @@ func Start(data models.Data) {
 	log.Printf("INFO: Authorized on account %s", bot.Self.UserName)
 
 	// Create commands Menu
-	var oneComm tgbotapi.BotCommand
-	var allComm []tgbotapi.BotCommand
-	help := true
-	for _, comm := range data.Coms {
-		if comm.Name != "" && comm.Desc != "" {
-			oneComm.Command = comm.Name
-			oneComm.Description = comm.Desc
+	allComm := menu(data)
 
-			allComm = append(allComm, oneComm)
-		}
-		if comm.Name == "help" {
-			help = false
-		}
-	}
-	if help {
-		oneComm.Command = "help"
-		oneComm.Description = "List all commands"
-		allComm = append(allComm, oneComm)
-	}
-
-	cfg := tgbotapi.NewSetMyCommands(allComm...)
-	_, err = bot.Request(cfg)
+	// Delete old Menu
+	cfgDel := tgbotapi.NewDeleteMyCommands()
+	_, err = bot.Request(cfgDel)
 	check.IfError(err)
+	// Set Menu for each ID
+	for _, id := range data.Conf.IDs {
+		scope := tgbotapi.NewBotCommandScopeChat(id)
+		cfgSet := tgbotapi.NewSetMyCommandsWithScope(scope, allComm...)
+		_, err = bot.Request(cfgSet)
+		check.IfError(err)
+	}
 
 	u := tgbotapi.NewUpdate(0)
 	u.Timeout = 60
@@ -48,7 +38,8 @@ func Start(data models.Data) {
 	updates := bot.GetUpdatesChan(u)
 
 	for update := range updates {
-		if update.Message.Chat.ID == data.Conf.ID { // Only from this Chat ID
+		if check.InSlice(update.Message.Chat.ID, data.Conf.IDs) { // Only from this Chat ID
+
 			if update.Message == nil { // ignore any non-Message updates
 				continue
 			}
@@ -56,9 +47,10 @@ func Start(data models.Data) {
 				continue
 			}
 
-			msg := tgbotapi.NewMessage(data.Conf.ID, "")
+			returnText := execCommand(update.Message.Command(), update.Message.CommandArguments(), data)
 
-			msg.Text = execCommand(update.Message.Command(), update.Message.CommandArguments(), data)
+			msg := tgbotapi.NewMessage(update.Message.Chat.ID, "")
+			msg.Text = returnText
 
 			_, err = bot.Send(msg)
 			check.IfError(err)

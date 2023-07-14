@@ -2,9 +2,10 @@ package models
 
 // Config - telegram chat token and ID
 type Config struct {
-	Token string `yaml:"token"`
-	ID    int64  `yaml:"id"`
-	Args  string `yaml:"args"`
+	Token string  `yaml:"token"`
+	ID    int64   `yaml:"id"`
+	IDs   []int64 `yaml:"ids"`
+	Args  string  `yaml:"args"`
 }
 
 // Command - one command
