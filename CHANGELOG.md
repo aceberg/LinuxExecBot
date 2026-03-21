@@ -2,6 +2,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.2.1] - 2026-03-22
+### Added
+- Socks5 proxy option
+- Upd to `go 1.26.1`
+
 ## [1.2.0] - 2023-07-15
 ### Added
 - Multiuser support: you can set several IDs in config

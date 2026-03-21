@@ -11,8 +11,20 @@ import (
 
 // Start telegram bot
 func Start(data models.Data) {
+	var bot *tgbotapi.BotAPI
+	var err error
 
-	bot, err := tgbotapi.NewBotAPI(data.Conf.Token)
+	if data.Conf.Socks5 != "" {
+		httpClient := addSocks5(data.Conf.Socks5)
+
+		bot, err = tgbotapi.NewBotAPIWithClient(
+			data.Conf.Token,
+			"https://api.telegram.org/bot%s/%s",
+			httpClient,
+		)
+	} else {
+		bot, err = tgbotapi.NewBotAPI(data.Conf.Token)
+	}
 	check.IfError(err)
 
 	log.Printf("INFO: Authorized on account %s", bot.Self.UserName)

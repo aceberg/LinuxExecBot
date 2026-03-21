@@ -45,6 +45,7 @@ go install github.com/aceberg/LinuxExecBot/cmd/LinuxExecBot@latest
 ```yaml
 config:
   token: 5XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  socks5: "127.0.0.1:1080" # Optional Socks5 proxy
   #id: 111111111 
   ids:     # Use either id (for one user) or ids (for several bot users)
     - 111111111
