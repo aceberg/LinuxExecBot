@@ -1,7 +1,7 @@
 project_name: LinuxExecBot
 builds:
   - main: ./cmd/LinuxExecBot/
-    binary: linuxexecbot
+    binary: LinuxExecBot
     id: default
     env: [CGO_ENABLED=0]
     goos:
