@@ -1,0 +1,55 @@
+project_name: LinuxExecBot
+builds:
+  - main: ./cmd/LinuxExecBot/
+    binary: linuxexecbot
+    id: default
+    env: [CGO_ENABLED=0]
+    goos:
+      - linux
+    goarch:
+      - 386
+      - amd64
+      - arm
+      - arm64
+    goarm:
+      - "5"
+      - "6"
+      - "7"
+
+nfpms:
+  - maintainer: aceberg <aceberg_a@proton.me>
+    description: Telegram bot to execute a command from a configurable list
+    homepage: https://github.com/aceberg/LinuxExecBot
+    license: MIT
+    section: utils
+    formats:
+    - deb
+    - rpm
+    - apk
+    contents:
+    - src: ./configs/config.yaml
+      dst: /etc/LinuxExecBot/config.yaml
+    - src: ./configs/linuxexecbot.service
+      dst: /lib/systemd/system/linuxexecbot.service
+    - src: ./configs/linuxexecbot@.service
+      dst: /lib/systemd/system/linuxexecbot@.service
+    scripts:
+      postinstall: ./configs/postinstall.sh
+
+archives:
+  - files:
+    - LICENSE
+    - README.md
+    - CHANGELOG.md
+    - src: ./configs/config.yaml
+      dst: config.yaml
+    - src: ./configs/linuxexecbot.service
+      dst: linuxexecbot.service
+    - src: ./configs/linuxexecbot@.service
+      dst: linuxexecbot@.service
+    - src: ./configs/install.sh
+      dst: install.sh
+    wrap_in_directory: true
+
+checksum:
+  name_template: "checksums.txt"
