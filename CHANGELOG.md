@@ -2,6 +2,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.2.2] - 2026-04-01
+### Added
+- Wait for Socks5 proxy
+
 ## [1.2.1] - 2026-03-22
 ### Added
 - Socks5 proxy option
